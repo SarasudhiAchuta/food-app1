@@ -256,7 +256,7 @@ API runs at: http://localhost:5000
 
 ## 👨‍💻 Developer
 
-**Abhi** — BTech Computer Science Engineering  
+**Sarasudhi Achuta** — BTech Computer Science Engineering  
 GitHub: https://github.com/yourusername  
 LinkedIn: https://linkedin.com/in/yourprofile  
 
