@@ -19,11 +19,14 @@ export default function AdminDashboard() {
 
     try {
 
-      const res = await axios.get(
-        'http://localhost:5000/api/orders/stats'
-      )
+     const ordersRes = await axios.get(
+  'https://food-app1-1-hs0k.onrender.com/api/orders'
+)
 
-      setStats(res.data)
+const restaurantsRes = await axios.get(
+  'https://food-app1-1-hs0k.onrender.com/api/restaurants'
+)
+      setStats(ordersRes.data)
 
     } catch (error) {
 

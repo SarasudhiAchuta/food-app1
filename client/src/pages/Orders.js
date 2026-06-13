@@ -5,7 +5,9 @@ import { io } from 'socket.io-client'
 export default function Orders() {
 
   const [orders, setOrders] = useState([])
-  
+    const socket = io(
+    'https://food-app1-1-hs0k.onrender.com'
+  )
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -15,7 +17,7 @@ export default function Orders() {
         return 'text-blue-500'
       case 'confirmed':
         return 'text-voilet-500'
-      case 'out for Delivery':
+      case 'out for delivery':
         return 'text-orange-500'
       case 'delivered':
         return 'text-green-600'
