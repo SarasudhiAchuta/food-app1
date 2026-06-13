@@ -5,7 +5,9 @@ import { io } from 'socket.io-client'
 export default function Orders() {
 
   const [orders, setOrders] = useState([])
-  const socket = io('http://localhost:5000')
+  const socket = io(
+  'https://food-app1-1-hs0k.onrender.com'
+)
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -46,8 +48,8 @@ export default function Orders() {
 
       const token = localStorage.getItem('token')
 
-      const res = await axios.get(
-        'http://localhost:5000/api/orders/my',
+     const res = await axios.get(
+  'https://food-app1-1-hs0k.onrender.com/api/orders/my',
         {
           headers: {
             Authorization: `Bearer ${token}`

@@ -23,7 +23,7 @@ export default function Register() {
 
       await axios.post(
 
-        'http://localhost:5000/api/auth/register',
+       'https://food-app1-1-hs0k.onrender.com/api/auth/register',
 
         {
 

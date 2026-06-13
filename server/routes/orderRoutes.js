@@ -133,4 +133,41 @@ router.get('/my', authMiddleware, async (req, res) => {
 
 })
 
+router.get('/stats', async (req, res) => {
+
+  try {
+
+    const totalOrders = await Order.countDocuments()
+
+    const pendingOrders = await Order.countDocuments({
+      currentStatus: 'pending'
+    })
+
+    const deliveredOrders = await Order.countDocuments({
+      currentStatus: 'delivered'
+    })
+
+    const orders = await Order.find()
+
+    const totalRevenue = orders.reduce(
+      (sum, order) => sum + order.totalPrice,
+      0
+    )
+
+    res.json({
+      totalOrders,
+      pendingOrders,
+      deliveredOrders,
+      totalRevenue
+    })
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    })
+
+  }
+
+})
 module.exports = router

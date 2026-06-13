@@ -21,7 +21,7 @@ export default function Restaurant() {
       try {
 
         const res = await axios.get(
-          `http://localhost:5000/api/restaurants/${id}/menu`
+            `${process.env.REACT_APP_API_URL}/api/restaurants/${id}`
         )
 
         setMenu(res.data)

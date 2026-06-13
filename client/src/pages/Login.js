@@ -21,17 +21,16 @@ export default function Login() {
 
       const res = await axios.post(
 
-        'http://localhost:5000/api/auth/login',
+  'https://food-app1-1-hs0k.onrender.com/api/auth/login',
 
-        {
+  {
 
-          email,
-          password
+    email,
+    password
 
-        }
+  }
 
-      )
-
+)
       localStorage.setItem(
         'token',
         res.data.token
