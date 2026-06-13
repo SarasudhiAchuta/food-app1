@@ -15,11 +15,11 @@ export default function Home() {
   const fetchRestaurants = async () => {
 
     try {
-
+        
       const res = await axios.get(
-        'http://localhost:5000/api/restaurants'
-      )
-
+  `${process.env.REACT_APP_API_URL}/api/restaurants`
+)
+     
       setRestaurants(res.data)
 
     } catch (error) {

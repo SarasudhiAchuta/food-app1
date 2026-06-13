@@ -36,9 +36,8 @@ export default function AdminOrders() {
       const token = localStorage.getItem('token')
 
       const res = await axios.put(
-
-        `http://localhost:5000/api/orders/${id}/status`,
-
+,
+  `${process.env.REACT_APP_API_URL}/api/orders`
         { status },
 
         {
