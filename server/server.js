@@ -20,7 +20,7 @@ const io = new Server(server, {
      'https://food-app1-five.vercel.app'
     ],
     methods: ['GET', 'POST', 'PUT']
-     credentials: true
+   
   }
 })
 
