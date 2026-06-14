@@ -15,27 +15,40 @@ export default function AdminDashboard() {
 
   })
 
-  const fetchStats = async () => {
+ const fetchStats = async () => {
+  try {
+    const res = await axios.get(
+      'https://food-app1-1-hs0k.onrender.com/api/orders'
+    );
 
-    try {
+    const orders = res.data;
 
-     const ordersRes = await axios.get(
-  'https://food-app1-1-hs0k.onrender.com/api/orders'
-)
+    const totalOrders = orders.length;
 
-const restaurantsRes = await axios.get(
-  'https://food-app1-1-hs0k.onrender.com/api/restaurants'
-)
-      setStats(ordersRes.data)
+    const pendingOrders = orders.filter(
+      order => order.currentStatus === 'pending'
+    ).length;
 
-    } catch (error) {
+    const deliveredOrders = orders.filter(
+      order => order.currentStatus === 'delivered'
+    ).length;
 
-      console.log(error)
+    const totalRevenue = orders.reduce(
+      (total, order) => total + (order.totalPrice || 0),
+      0
+    );
 
-    }
+    setStats({
+      totalOrders,
+      pendingOrders,
+      deliveredOrders,
+      totalRevenue
+    });
 
+  } catch (error) {
+    console.error(error);
   }
-
+};
   useEffect(() => {
 
     fetchStats()
