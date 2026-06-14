@@ -96,7 +96,8 @@ export default function Cart() {
 
         <div>
 
-          {cart.map((item) => (
+   {Array.isArray(cart) &&
+  cart.map((item) => (
 
             <div
               key={item._id}

@@ -48,7 +48,8 @@ export default function Restaurant() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-        {menu.map((item) => (
+        {Array.isArray(menu) &&
+  menu.map((item) => (
 
           <div
             key={item._id}

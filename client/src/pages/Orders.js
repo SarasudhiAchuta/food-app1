@@ -74,13 +74,15 @@ export default function Orders() {
       fetchOrders()
         
 
-      setOrders(prev =>
-        prev.map(order =>
-          order._id === updatedOrder._id
-            ? updatedOrder
-            : order
-        )
+     setOrders(prev =>
+  Array.isArray(prev)
+    ? prev.map(order =>
+        order._id === updatedOrder._id
+          ? updatedOrder
+          : order
       )
+    : []
+);
 
     })
 
@@ -97,10 +99,11 @@ export default function Orders() {
         My Orders
       </h1>
 
-      {orders.length === 0 ? (
+     { orders.length === 0 ? (
         <p>No orders found</p>
       ) : (
-        orders.map(order => (
+        Array.isArray(orders) &&
+  orders.map((order) => (
 
           <div
             key={order._id}

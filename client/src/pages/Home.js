@@ -40,7 +40,9 @@ export default function Home() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-        {restaurants.map((restaurant) => (
+       {Array.isArray(restaurants) &&
+  restaurants.map((restaurant) => (
+
 
           <a
             href={`/restaurant/${restaurant._id}`}
