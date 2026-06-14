@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function AdminOrders() {
 
@@ -9,9 +10,16 @@ export default function AdminOrders() {
 
     try {
 
-      const res = await axios.get(
-        'http://localhost:5000/api/orders'
-      )
+      const token = localStorage.getItem('token');
+
+const res = await axios.get(
+  `${API_URL}/api/orders`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+)
 
       setOrders(res.data)
 
@@ -76,7 +84,8 @@ export default function AdminOrders() {
         Admin Orders
       </h1>
 
-      {orders.map((order) => (
+      {Array.isArray(orders) &&
+  orders.map((order) => (
 
         <div
           key={order._id}

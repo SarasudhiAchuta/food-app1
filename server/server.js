@@ -15,13 +15,26 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: [
+    'http://localhost:3000',
+     'https://food-app1-five.vercel.app'
+    ],
     methods: ['GET', 'POST', 'PUT']
+     credentials: true
   }
 })
 
 app.set('io', io)
 connectDB()
+app.use(
+  cors({
+    origin: [
+      'http://localhost:3000',
+      'https://food-app1-five.vercel.app'
+    ],
+    credentials: true
+  })
+);
 
 app.use(cors())
 app.use(express.json())
