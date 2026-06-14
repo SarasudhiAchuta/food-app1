@@ -17,7 +17,7 @@ export default function Home() {
     try {
         
       const res = await axios.get(
-  `${process.env.REACT_APP_API_URL}/api/restaurants`
+  `${"https://food-app1-1-hs0k.onrender.com"}/api/restaurants`
 )
      
       setRestaurants(res.data)

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = "https://food-app1-1-hs0k.onrender.com";
 
 export default function AdminOrders() {
 
@@ -45,7 +45,7 @@ const res = await axios.get(
 
       const res = await axios.put(
 
-`${process.env.REACT_APP_API_URL}/api/orders/${id}/status`,
+`${"https://food-app1-1-hs0k.onrender.com"}/api/orders/${id}/status`,
         { status },
 
         {

@@ -32,7 +32,7 @@ export default function Cart() {
 
     const res = await axios.post(
 
-      `${process.env.REACT_APP_API_URL}/api/orders`,
+      `${"https://food-app1-1-hs0k.onrender.com"}/api/orders`,
 
       {
         items: cart,
