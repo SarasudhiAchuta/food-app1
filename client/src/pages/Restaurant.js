@@ -19,10 +19,9 @@ export default function Restaurant() {
     const fetchMenu = async () => {
 
       try {
-
-        const res = await axios.get(
-            `${"https://food-app1-1-hs0k.onrender.com"}/api/restaurants/${id}`
-        )
+  const res = await axios.get(
+  `https://food-app1-1-hs0k.onrender.com/api/restaurants/${id}/menu`
+)
 
         setMenu(res.data)
 
