@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sarasudhi-achuta.github.io/food-app1",
 
   "dependencies": {
     "@headlessui/react": "^2.2.10",
